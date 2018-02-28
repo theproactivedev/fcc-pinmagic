@@ -25,7 +25,7 @@ const Footer = () => {
         </div>
       </div>
       <p>By <a href="http://eiringonzales.com/">Eirin Gonzales</a> | <a href="https://github.com/theproactivedev/fcc-pinmagic">Github Repo</a></p>
-      <p className="small">All images are not mine. All image sources are written in the page source. (Right Click and Click 'View Page Source'.) All credits to the respective owners.</p>
+      <p className="small">All images and gifs are not mine. All image sources are written in the page source. (Right Click and Click 'View Page Source'.) All credits to the respective owners.</p>
     </div>
     </footer>
   );
