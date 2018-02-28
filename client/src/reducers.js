@@ -1,5 +1,5 @@
 import {
-  ADD_USER, REMOVE_USER
+  ADD_USER, REMOVE_USER, ADD_PHOTO, ADD_ALL_PHOTOS
 } from './actions.js';
 
 const initialState = {
@@ -9,7 +9,9 @@ const initialState = {
     userName: "",
     userId: "",
     userToken: ""
-  }
+  },
+  userPhotos: [],
+  allPhotos: []
 };
 
 const rootReducer = (state=initialState, action) => {
@@ -36,6 +38,16 @@ const rootReducer = (state=initialState, action) => {
           userToken: ""
         }
       };
+    case ADD_PHOTO:
+      return {
+        ...state,
+        userPhotos: action.items
+      };
+    case ADD_ALL_PHOTOS:
+      return {
+        ...state,
+        allPhotos: action.items
+      }
     default:
       return state;
   }
