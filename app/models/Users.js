@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
 Schema = mongoose.Schema;
 
 var PinSchema = new Schema({
-  link: String,
+  url: String,
   title: String
 });
 

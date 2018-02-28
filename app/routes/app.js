@@ -1,7 +1,6 @@
 const expressJwt = require('express-jwt');
 const request = require('request');
 const jwt = require('jsonwebtoken');
-const fetch = require('node-fetch');
 let router = require("express").Router();
 let Users = require('../models/Users.js');
 
@@ -54,7 +53,7 @@ module.exports = function(app, passport) {
     request.post({
       url: 'https://api.twitter.com/oauth/request_token',
       oauth: {
-        oauth_callback: "https://eg-fcc-shareabook.herokuapp.com/twitter-callback",
+        oauth_callback: "http://localhost:/3000/twitter-callback",
         consumer_key: process.env.TWITTER_KEY,
         consumer_secret: process.env.TWITTER_SECRET
       }
@@ -103,4 +102,48 @@ module.exports = function(app, passport) {
 
   app.use("/api/v1", router);
 
+  app.route("/addingPhoto").post(authenticate, getCurrentUser, function(req, res) {
+    let obj = {
+      url: req.body.url,
+      title: req.body.title
+    };
+    Users.update(
+      { "_id": req.auth.id },
+      { $push : { "pins" : obj } },
+      { upsert: true, new: true},
+      function(err) {
+        if (err) console.log(err);
+      }
+    );
+  });
+
+  app.route("/deletingPhoto").delete(authenticate, getCurrentUser, function(req, res) {
+    Users.findOneAndUpdate(
+      {"_id": req.auth.id},
+      {$pull : { "pins" : { title : req.body.imgTitle } } },
+      function(err) {
+        if (err) console.log(err);
+    });
+  });
+
+  app.route("/gettingUserPhotos").get(authenticate, getCurrentUser, function(req, res) {
+    Users.findOne({ "_id": req.auth.id },
+      function(err, user) {
+        if (err) console.log(err);
+        if (user) {
+          res.json(user.pins);
+        }
+    });
+  });
+
+  app.route("/gettingAllPhotos").get(function(req, res) {
+
+    Users.find({}, function(err, users) {
+      var photos = [];
+      users.forEach(function(user) {
+        photos = photos.concat(user.pins);
+      });
+      res.json(photos);
+    });
+  });
 };
