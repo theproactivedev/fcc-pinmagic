@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="row">
         <div className="col-xs-12 col-md-4">
           <h4>JavaScript Project</h4>
-          <p>Manage a Book Trading Club</p>
+          <p>Pinterest Clone</p>
           <p>Free Code Camp Full Stack App</p>
           <p>Check user stories <a href="https://www.freecodecamp.org/challenges/build-a-pinterest-clone">here.</a></p>
         </div>
@@ -29,7 +29,11 @@ const Footer = () => {
         </div>
       </div>
       <p>By <a href="http://eiringonzales.com/">Eirin Gonzales</a> | <a href="https://github.com/theproactivedev/fcc-pinmagic">Github Repo</a></p>
+<<<<<<< HEAD
       <p className="small">All images and gifs are not mine. All sources are written in the page source. (Right Click and Click 'View Page Source'.) All credits to the respective owners.</p>
+=======
+      <p className="small">All images and gifs are not mine. All media sources are written in the page source. (Right Click on the page and Click 'View Page Source'.) All credits to the respective owners.</p>
+>>>>>>> master
     </div>
     </footer>
   );
