@@ -22,6 +22,10 @@ const Footer = () => {
           <p>Eirin Gonzales</p>
           <p>Get in touch with me: <a href="https://twitter.com/theproactivedev">Twitter</a> | <a href="https://www.linkedin.com/in/eirin-gonzales-5951aa9b">Linkedin</a> | <a href="https://theproactivedeveloper.wordpress.com/">Blog</a></p>
           <p>View my portfolio <a href="http://eiringonzales.com/portfolio.php">here.</a></p>
+          <h4>Developer</h4>
+          <p>Adam Kuizon</p>
+          <p>Get in touch with me: <a href="https://twitter.com/theproactivedev">Twitter</a> | <a href="https://www.linkedin.com/in/eirin-gonzales-5951aa9b">Linkedin</a> | <a href="https://theproactivedeveloper.wordpress.com/">Blog</a></p>
+          <p>View my portfolio <a href="http://eiringonzales.com/portfolio.php">here.</a></p>
         </div>
       </div>
       <p>By <a href="http://eiringonzales.com/">Eirin Gonzales</a> | <a href="https://github.com/theproactivedev/fcc-pinmagic">Github Repo</a></p>
