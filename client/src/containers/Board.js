@@ -4,6 +4,7 @@ import ModalAddButton from './ModalAddButton';
 import Photos from './Photos';
 import { connect } from 'react-redux';
 import { getUserPhotos, deletePhoto } from '../actions.js';
+import { ClipLoader } from 'react-spinners';
 
 class Board extends Component {
   componentWillMount() {
@@ -16,7 +17,6 @@ class Board extends Component {
   //   }
   // }
   componentWillReceiveProps(nextProps) {
-    // console.log("Is it this?");
     if (this.props.userPhotos !== nextProps.userPhotos) {
       this.props.dispatch(getUserPhotos(this.props.user.userToken));
     }
@@ -33,17 +33,23 @@ class Board extends Component {
           <h2>My Board</h2>
           <ModalAddButton />
         </div>
-        <div>
-          <Photos photos={this.props.userPhotos} deletePhoto={this.deletePhoto.bind(this)} />
+        <div className="spinner">
+          <ClipLoader
+            color={'#3c3c3d'}
+            loading={this.props.isFetching}
+          />
         </div>
+        {!this.props.isFetching &&
+          <Photos isUserAuthenticated={true} photos={this.props.userPhotos} deletePhoto={this.deletePhoto.bind(this)} />
+        }
       </Grid>
     );
   }
 }
 
 function mapStateToProps(state) {
-  const { user, userPhotos } = state;
-  return { user, userPhotos };
+  const { user, userPhotos, isFetching } = state;
+  return { user, userPhotos, isFetching };
 }
 
 export default connect(mapStateToProps)(Board);

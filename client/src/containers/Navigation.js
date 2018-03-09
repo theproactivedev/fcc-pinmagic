@@ -49,7 +49,7 @@ class Navigation extends Component {
     const navbarInstance = (
       <Navbar inverse collapseOnSelect>
         <Navbar.Header>
-          <LinkContainer to="/"><Navbar.Brand>Pins</Navbar.Brand></LinkContainer>
+          <LinkContainer to="/"><Navbar.Brand>Pin Magic</Navbar.Brand></LinkContainer>
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>

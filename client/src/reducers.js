@@ -1,5 +1,5 @@
 import {
-  ADD_USER, REMOVE_USER, ADD_PHOTO, ADD_ALL_PHOTOS
+  ADD_USER, REMOVE_USER, ADD_PHOTO, ADD_ALL_PHOTOS, FETCH_PHOTOS_PENDING, FETCH_PHOTOS_RECEIVED
 } from './actions.js';
 
 const initialState = {
@@ -16,6 +16,16 @@ const initialState = {
 
 const rootReducer = (state=initialState, action) => {
   switch(action.type) {
+    case FETCH_PHOTOS_PENDING:
+      return {
+        ...state,
+        isFetching: true
+      }
+    case FETCH_PHOTOS_RECEIVED:
+      return {
+        ...state,
+        isFetching: false
+      }
     case ADD_USER:
       return {
         ...state,

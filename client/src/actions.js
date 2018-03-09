@@ -2,9 +2,22 @@ export const ADD_USER = "ADD_USER";
 export const REMOVE_USER = "REMOVE_USER";
 export const ADD_PHOTO = "ADD_PHOTO";
 export const ADD_ALL_PHOTOS = "ADD_ALL_PHOTOS";
+export const FETCH_PHOTOS_PENDING = "FETCH_PHOTOS_PENDING";
+export const FETCH_PHOTOS_RECEIVED = "FETCH_PHOTOS_RECEIVED";
 
 // store - to state
 // save - to database
+function requestPhotos() {
+  return {
+    type: FETCH_PHOTOS_PENDING
+  };
+}
+
+function receivePhotos() {
+  return {
+    type: FETCH_PHOTOS_RECEIVED
+  };
+}
 
 export function addUser(user) {
   return {
@@ -67,6 +80,7 @@ export function deletePhoto(title, token) {
 
 export function getUserPhotos(token) {
   return (dispatch) => {
+    dispatch(requestPhotos());
     return fetch("/gettingUserPhotos", {
         method: "GET",
         headers: new Headers({
@@ -76,12 +90,14 @@ export function getUserPhotos(token) {
       })
     .then(response => response.json(),
     error => console.log(error))
-    .then(json => dispatch(storeUserPhotos(json)));
+    .then(json => dispatch(storeUserPhotos(json)))
+    .then(json => dispatch(receivePhotos()));
   }
 }
 
 export function getAllPhotos() {
   return (dispatch) => {
+    dispatch(requestPhotos());
     return fetch("/gettingAllPhotos", {
         method: "GET",
         headers: new Headers({
@@ -90,6 +106,7 @@ export function getAllPhotos() {
       })
     .then(response => response.json(),
     error => console.log(error))
-    .then(json => dispatch(storeAllPhotos(json)));
+    .then(json => dispatch(storeAllPhotos(json)))
+    .then(json => dispatch(receivePhotos()));
   }
 }

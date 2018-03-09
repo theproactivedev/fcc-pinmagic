@@ -13,7 +13,7 @@ export default class Photos extends Component {
     if(this.props.photos !== undefined) {
       images = this.props.photos.map((img, index) => {
         return (
-          <Photo index={index} title={img.title} url={img.url}
+          <Photo key={index} isUserAuthenticated={this.props.isUserAuthenticated} title={img.title} url={img.url}
           deletePhoto={this.props.deletePhoto}
           addDefaultSrc={this.addDefaultSrc.bind(this)} />
         );
