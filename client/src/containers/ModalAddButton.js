@@ -27,7 +27,7 @@ export default class ModalAddButton extends Component {
   render() {
     return(
       <div className="modalButton">
-        <Button bsStyle="danger" onClick={this.showModal}>Add Photo</Button>
+        <Button bsStyle="danger" bsSize="large" onClick={this.showModal}>+ Add Photo</Button>
         <ModalAddWindow closeModal={this.closeModal} showModal={this.showModal} open={this.state.open} />
       </div>
     );

@@ -13,9 +13,9 @@ const Footer = () => {
         </div>
         <div className="col-xs-12 col-md-4">
           <h4>Tech Stack</h4>
-          <p>Front End: React, Redux, React-Bootstrap</p>
+          <p>Front End: React, Redux, React-Bootstrap, React-Masonry-Component</p>
           <p>Back End: Express.js, Mongoose, mLab</p>
-          <p>Assets: Google Fonts, Unsplash.com, Font Awesome Icons</p>
+          <p>Assets: Google Fonts, Credits to the Images&#39; Owners</p>
         </div>
         <div className="col-xs-12 col-md-4">
           <h4>Developer</h4>
