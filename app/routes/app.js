@@ -146,4 +146,8 @@ module.exports = function(app, passport) {
       res.json(photos);
     });
   });
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname+'/client/build/index.html'));
+  });
 };
