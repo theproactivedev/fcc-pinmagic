@@ -53,7 +53,7 @@ module.exports = function(app, passport) {
     request.post({
       url: 'https://api.twitter.com/oauth/request_token',
       oauth: {
-        oauth_callback: "http://localhost:/3000/twitter-callback",
+        oauth_callback: "https://eg-fcc-pinterest.herokuapp.com/twitter-callback",
         consumer_key: process.env.TWITTER_KEY,
         consumer_secret: process.env.TWITTER_SECRET
       }
